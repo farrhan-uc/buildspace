@@ -1,4 +1,5 @@
 import './globals.css';
+import { LanguageProvider } from '@/components/language-provider';
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 
@@ -20,7 +21,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="bg-ink font-sans text-paper">{children}</body>
+      <body className="bg-ink font-sans text-paper"><LanguageProvider>{children}</LanguageProvider></body>
     </html>
   );
 }

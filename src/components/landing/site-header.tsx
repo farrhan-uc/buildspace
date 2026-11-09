@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import { Logo } from './logo';
 
+const linkKeys = [
+  { href: '#features', key: 'features' },
+  { href: '#stages', key: 'stages' },
+  { href: '#workflow', key: 'workflow' },
+  { href: '#faq', key: 'faq' },
+] as const;
+
 const links = [
   { href: '#features', label: 'Features' },
   { href: '#stages', label: 'Stages' },
@@ -17,9 +24,9 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 text-sm text-muted md:flex">
-          {links.map((link) => (
+          {linkKeys.map((link) => (
             <a key={link.href} href={link.href} className="transition-colors hover:text-paper">
-              {link.label}
+              {link.key === 'features' ? 'Features' : link.key === 'stages' ? 'Stages' : link.key === 'workflow' ? 'Workflow' : 'FAQ'}
             </a>
           ))}
         </nav>
