@@ -1,6 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { useProjectStore } from '@/lib/project-store';
+import { supabase } from '@/lib/supabase';
 
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat('en-IN', {
@@ -43,6 +45,16 @@ const materialOverrides = [
 
 export default function NewProjectPage() {
   const { project, modifiers, overrides, estimate, setField, setModifier, setOverride, resetDefault } = useProjectStore();
+  const [saving, setSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState<string | null>(null);
+  const saveProject = async () => {
+    if (!project.projectName.trim() || project.builtUpAreaSqFt <= 0) { setSaveMessage('Add a project name and built-up area greater than zero.'); return; }
+    setSaving(true); setSaveMessage(null);
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) { setSaveMessage('Your session expired. Please sign in again.'); setSaving(false); return; }
+    const { error } = await supabase.from('projects').upsert({ user_id: user.id, name: project.projectName.trim().slice(0, 120), inputs: project, modifiers: modifiers, total_cost: estimate.projectTotal, updated_at: new Date().toISOString() }, { onConflict: 'id' });
+    setSaving(false); setSaveMessage(error ? 'Could not save this estimate. Please try again.' : 'Estimate saved to your workspace.');
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
@@ -51,13 +63,17 @@ export default function NewProjectPage() {
           <div className="text-xs uppercase tracking-[0.28em] text-brass">New project</div>
           <h1 className="mt-3 text-4xl font-semibold text-white">Project wizard</h1>
         </div>
-        <button
+        <div className="flex items-center gap-3">
+          {saveMessage ? <span role="status" className="text-sm text-slate-300">{saveMessage}</span> : null}
+          <button type="button" onClick={saveProject} disabled={saving} className="rounded-full bg-brass px-4 py-2 text-sm font-medium text-slate-950 disabled:opacity-60">{saving ? 'Saving…' : 'Save estimate'}</button>
+          <button
           type="button"
           onClick={resetDefault}
           className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:border-brass/40 hover:text-white"
         >
           Reset to sample
         </button>
+        </div>
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.45fr_0.85fr]">
