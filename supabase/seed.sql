@@ -1,0 +1,20 @@
+INSERT INTO rates (region, material_key, unit, price, source_url, updated_at, needs_verification)
+VALUES
+  ('Kota', 'cement_opc', 'bag', 410, 'https://www.ultratechcement.com/', NOW(), true),
+  ('Kota', 'steel_tmt', 'kg', 98, 'https://www.tatatiscon.com/', NOW(), true),
+  ('Kota', 'sand_river', 'cft', 58, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'aggregate_20mm', 'cft', 72, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'aggregate_10mm', 'cft', 78, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'brick_red', 'nos', 10, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'block_aac', 'nos', 75, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'tile_ceramic', 'sqft', 80, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'paint_interior', 'litre', 250, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'paint_exterior', 'litre', 310, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'cpvc_pipe', 'm', 110, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'wiring_copper', 'm', 52, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'conduit_pvc', 'm', 40, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'sanitary_fixture_set', 'set', 6000, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'mason_labour', 'day', 950, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'helper_labour', 'day', 650, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'carpenter_labour', 'day', 1100, 'https://www.google.com/maps', NOW(), true),
+  ('Kota', 'electrician_labour', 'day', 1100, 'https://www.google.com/maps', NOW(), true);
