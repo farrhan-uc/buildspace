@@ -3,7 +3,17 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Box, FileBarChart, LayoutDashboard, LogOut, Settings, Store } from 'lucide-react';
 import { currentUser, mockAuth } from '@/lib/supabase';
+import { Logo } from '@/components/landing/logo';
+
+const appLinks = [
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/visualizer', label: 'Visualizer', icon: Box },
+  { href: '/suppliers', label: 'Suppliers', icon: Store },
+  { href: '/reports', label: 'Reports', icon: FileBarChart },
+  { href: '/settings', label: 'Settings', icon: Settings },
+] as const;
 
 const publicRoutes = ['/login', '/signup', '/forgot-password', '/'];
 
@@ -46,28 +56,44 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-ink text-slate-100">
       <a href="#app-main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-brass focus:px-4 focus:py-2 focus:text-slate-950">Skip to content</a>
-      <header className="border-b border-white/10 bg-slate-950/80 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link href="/dashboard" className="font-semibold tracking-[0.24em] text-brass uppercase">BuildSpace</Link>
-          <div className="flex items-center gap-4 text-sm text-slate-300">
-            <Link href="/dashboard">Dashboard</Link>
-            <Link href="/visualizer">Visualizer</Link>
-            <Link href="/suppliers">Suppliers</Link>
-            <Link href="/reports">Reports</Link>
-            <Link href="/settings">Settings</Link>
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+          <Link href="/dashboard" aria-label="BuildSpace dashboard" className="shrink-0">
+            <Logo />
+          </Link>
+          <nav aria-label="App" className="-mx-1 flex min-w-0 items-center gap-1 overflow-x-auto px-1 text-sm">
+            {appLinks.map(({ href, label, icon: Icon }) => {
+              const active = pathname === href || pathname.startsWith(`${href}/`);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  aria-current={active ? 'page' : undefined}
+                  className={`inline-flex shrink-0 items-center gap-2 rounded-full px-3 py-2 transition-colors ${
+                    active ? 'bg-brass/15 text-brass-light' : 'text-muted hover:bg-white/5 hover:text-paper'
+                  }`}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  <span className="hidden lg:inline">{label}</span>
+                  <span className="sr-only lg:hidden">{label}</span>
+                </Link>
+              );
+            })}
             <button
               type="button"
-              className="rounded-full border border-white/10 px-3 py-1.5"
+              className="ml-2 inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 px-3 py-2 text-muted transition-colors hover:border-white/25 hover:text-paper"
               onClick={async () => {
                 await mockAuth.signOut();
                 router.push('/login');
               }}
             >
-              Sign out
+              <LogOut className="h-4 w-4" aria-hidden="true" />
+              <span className="hidden sm:inline">Sign out</span>
+              <span className="sr-only sm:hidden">Sign out</span>
             </button>
-          </div>
+          </nav>
         </div>
       </header>
       <main id="app-main">{children}</main>
