@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #0b1220;
-  --foreground: #f5f1ea;
-  --brass: #d3a15f;
-  --line: rgba(148, 163, 184, 0.16);
-  --muted: #b0becb;
+  color-scheme: light;
+  --background: #f7f1e6;
+  --foreground: #30291f;
+  --brass: #a96f35;
+  --line: rgba(111, 83, 48, 0.16);
+  --muted: #786b59;
   --radius: 24px;
 }
 
@@ -19,7 +20,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--background);
+  background: radial-gradient(ellipse at top, #fffdf8 0%, var(--background) 58%, #efe5d4 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), Inter, 'Segoe UI', sans-serif;
   line-height: 1.5;

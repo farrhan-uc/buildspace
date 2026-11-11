@@ -12,7 +12,7 @@ export default function SettingsPage() {
   const saveProfile = async () => { const { data: { user } } = await supabase.auth.getUser(); if (!user) return; await supabase.from('profiles').upsert({ id: user.id, name: name.trim().slice(0, 120), city: city.trim().slice(0, 120) }); setSaved(true); setTimeout(() => setSaved(false), 2500); };
   return (
     <div className="mx-auto max-w-4xl px-6 py-10">
-      <h1 className="text-4xl font-semibold text-white">Settings</h1>
+      <h1 className="text-4xl font-semibold text-paper">Settings</h1>
       <div className="mt-8 space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-6">
         <div>
           <div className="text-sm uppercase tracking-[0.2em] text-brass">Profile</div>
@@ -20,12 +20,12 @@ export default function SettingsPage() {
             <label className="block text-sm text-slate-200">
               Name
               <input aria-label="Name" value={name}
-              onChange={(event) => setName(event.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white" />
+              onChange={(event) => setName(event.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper" />
             </label>
             <label className="block text-sm text-slate-200">
               Default region
               <input aria-label="Default region" value={city}
-              onChange={(event) => setCity(event.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white" />
+              onChange={(event) => setCity(event.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper" />
             </label>
           </div>
         </div>

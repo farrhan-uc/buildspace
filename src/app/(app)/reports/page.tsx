@@ -56,7 +56,7 @@ export default function ReportsPage() {
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <div className="text-xs uppercase tracking-[0.3em] text-brass">Reports</div>
-          <h1 className="mt-3 text-4xl font-semibold text-white">Estimate summary and exports</h1>
+          <h1 className="mt-3 text-4xl font-semibold text-paper">Estimate summary and exports</h1>
         </div>
 
         <button
@@ -74,7 +74,7 @@ export default function ReportsPage() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-xs uppercase tracking-[0.2em] text-slate-400">Project</div>
-                <div className="mt-2 text-3xl font-semibold text-white">{project.projectName}</div>
+                <div className="mt-2 text-3xl font-semibold text-paper">{project.projectName}</div>
               </div>
               <div className="text-right">
                 <div className="text-sm text-slate-400">Total</div>
@@ -90,19 +90,19 @@ export default function ReportsPage() {
               ].map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
                   <div className="text-xs uppercase tracking-[0.18em] text-slate-400">{label}</div>
-                  <div className="mt-2 text-lg font-medium text-white">{value}</div>
+                  <div className="mt-2 text-lg font-medium text-paper">{value}</div>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="rounded-[28px] border border-white/10 bg-slate-950/70 p-6">
-            <div className="mb-5 text-xl font-semibold text-white">Cost drivers</div>
+            <div className="mb-5 text-xl font-semibold text-paper">Cost drivers</div>
             <div className="space-y-4">
               {topStages.map((stage) => (
                 <div key={stage.stageKey} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <div className="text-base font-medium text-white">{stage.name}</div>
+                    <div className="text-base font-medium text-paper">{stage.name}</div>
                     <div className="text-base font-semibold text-brass">{formatCurrency(stage.subtotal)}</div>
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-slate-800">
@@ -125,7 +125,7 @@ export default function ReportsPage() {
               {Object.entries(estimate.modifiers).map(([key, value]) => (
                 <div key={key} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
                   <span className="capitalize text-slate-300">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                  <span className="font-medium text-white">{typeof value === 'string' ? value : `${value}%`}</span>
+                  <span className="font-medium text-paper">{typeof value === 'string' ? value : `${value}%`}</span>
                 </div>
               ))}
             </div>
@@ -135,11 +135,11 @@ export default function ReportsPage() {
             <div className="text-xs uppercase tracking-[0.2em] text-slate-400">Export package</div>
             <div className="mt-4 space-y-3 text-sm text-slate-300">
               <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <div className="font-medium text-white">CSV summary</div>
+                <div className="font-medium text-paper">CSV summary</div>
                 <div className="mt-1">Stage totals, ranges, and cost contribution.</div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <div className="font-medium text-white">PDF-ready report</div>
+                <div className="font-medium text-paper">PDF-ready report</div>
                 <div className="mt-1">Prepared for a contractor or owner handoff view.</div>
               </div>
             </div>

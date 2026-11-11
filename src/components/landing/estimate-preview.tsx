@@ -19,7 +19,7 @@ export function EstimatePreview() {
           priority
           className="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" aria-hidden="true" />
       </div>
 
       <div className="absolute inset-x-4 bottom-4 rounded-3xl border border-white/10 bg-ink-800/85 p-5 backdrop-blur-xl sm:inset-x-6 sm:bottom-6">
