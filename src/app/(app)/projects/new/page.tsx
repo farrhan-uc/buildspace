@@ -61,7 +61,7 @@ export default function NewProjectPage() {
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <div className="text-xs uppercase tracking-[0.28em] text-brass">New project</div>
-          <h1 className="mt-3 text-4xl font-semibold text-white">Project wizard</h1>
+          <h1 className="mt-3 text-4xl font-semibold text-paper">Project wizard</h1>
         </div>
         <div className="flex items-center gap-3">
           {saveMessage ? <span role="status" className="text-sm text-slate-300">{saveMessage}</span> : null}
@@ -69,7 +69,7 @@ export default function NewProjectPage() {
           <button
           type="button"
           onClick={resetDefault}
-          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:border-brass/40 hover:text-white"
+          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:border-brass/40 hover:text-paper"
         >
           Reset to sample
         </button>
@@ -84,7 +84,7 @@ export default function NewProjectPage() {
               <input
                 value={project.projectName}
                 onChange={(event) => setField('projectName', event.target.value)}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -93,7 +93,7 @@ export default function NewProjectPage() {
               <input
                 value={project.city}
                 onChange={(event) => setField('city', event.target.value)}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -102,7 +102,7 @@ export default function NewProjectPage() {
               <input
                 value={project.region ?? 'Kota'}
                 onChange={(event) => setField('region', event.target.value)}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -111,7 +111,7 @@ export default function NewProjectPage() {
               <select
                 value={project.buildingType}
                 onChange={(event) => setField('buildingType', event.target.value as typeof project.buildingType)}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               >
                 {Object.entries(buildingTypeLabels).map(([key, label]) => (
                   <option key={key} value={key}>
@@ -126,7 +126,7 @@ export default function NewProjectPage() {
               <select
                 value={project.structureType}
                 onChange={(event) => setField('structureType', event.target.value as typeof project.structureType)}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               >
                 {Object.entries(structureTypeLabels).map(([key, label]) => (
                   <option key={key} value={key}>
@@ -143,7 +143,7 @@ export default function NewProjectPage() {
                 min={0}
                 value={project.plotAreaSqFt}
                 onChange={(event) => setField('plotAreaSqFt', Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -154,7 +154,7 @@ export default function NewProjectPage() {
                 min={0}
                 value={project.builtUpAreaSqFt}
                 onChange={(event) => setField('builtUpAreaSqFt', Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -165,7 +165,7 @@ export default function NewProjectPage() {
                 min={1}
                 value={project.floors}
                 onChange={(event) => setField('floors', Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -176,7 +176,7 @@ export default function NewProjectPage() {
                 min={0}
                 value={project.floorHeight}
                 onChange={(event) => setField('floorHeight', Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -187,7 +187,7 @@ export default function NewProjectPage() {
                 min={0}
                 value={project.bedroomCount}
                 onChange={(event) => setField('bedroomCount', Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -198,7 +198,7 @@ export default function NewProjectPage() {
                 min={0}
                 value={project.bathroomCount}
                 onChange={(event) => setField('bathroomCount', Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -209,7 +209,7 @@ export default function NewProjectPage() {
                 min={0}
                 value={project.kitchenCount}
                 onChange={(event) => setField('kitchenCount', Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
 
@@ -218,7 +218,7 @@ export default function NewProjectPage() {
               <select
                 value={project.qualityTier}
                 onChange={(event) => setField('qualityTier', event.target.value as typeof project.qualityTier)}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               >
                 <option value="Economy">Economy</option>
                 <option value="Standard">Standard</option>
@@ -232,7 +232,7 @@ export default function NewProjectPage() {
               <select
                 value={project.labourModel}
                 onChange={(event) => setField('labourModel', event.target.value as typeof project.labourModel)}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
               >
                 <option value="labour_only">Labour only</option>
                 <option value="material_labour">Material + labour</option>
@@ -244,7 +244,7 @@ export default function NewProjectPage() {
 
         <aside className="rounded-[28px] border border-brass/20 bg-brass/10 p-6 shadow-soft">
           <div className="text-xs uppercase tracking-[0.24em] text-brass">Live estimate</div>
-          <div className="mt-4 text-4xl font-semibold text-white">{formatCurrency(estimate.projectTotal)}</div>
+          <div className="mt-4 text-4xl font-semibold text-paper">{formatCurrency(estimate.projectTotal)}</div>
           <div className="mt-2 text-sm text-slate-200">Cost per sq ft: {formatCurrency(estimate.perSqFt)}</div>
           <div className="mt-6 rounded-2xl border border-white/10 bg-slate-950/40 p-4">
             <div className="mb-2 flex items-center justify-between text-sm text-slate-300">
@@ -271,7 +271,7 @@ export default function NewProjectPage() {
       <div className="mt-8 grid gap-6 xl:grid-cols-[1.45fr_0.85fr]">
         <section className="rounded-[28px] border border-white/10 bg-slate-950/70 p-6">
           <div className="mb-5 flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-white">Stage estimate</h2>
+            <h2 className="text-xl font-semibold text-paper">Stage estimate</h2>
             <span className="text-xs uppercase tracking-[0.2em] text-slate-400">{estimate.stages.length} stages</span>
           </div>
 
@@ -280,7 +280,7 @@ export default function NewProjectPage() {
               <div key={stage.stageKey} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <div className="text-sm font-medium text-white">{stage.name}</div>
+                    <div className="text-sm font-medium text-paper">{stage.name}</div>
                     <div className="mt-1 text-xs uppercase tracking-[0.16em] text-slate-400">{stage.percentOfProject}%</div>
                   </div>
                   <div className="text-right text-base font-semibold text-brass">{formatCurrency(stage.subtotal)}</div>
@@ -295,7 +295,7 @@ export default function NewProjectPage() {
         </section>
 
         <aside className="rounded-[28px] border border-white/10 bg-slate-950/70 p-6">
-          <h2 className="text-xl font-semibold text-white">BOM snapshot</h2>
+          <h2 className="text-xl font-semibold text-paper">BOM snapshot</h2>
           <div className="mt-5 grid gap-3">
             {Object.entries(estimate.bom).map(([key, value]) => (
               <div key={key} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
@@ -304,7 +304,7 @@ export default function NewProjectPage() {
                     .replace(/([A-Z])/g, ' $1')
                     .replace(/^./, (letter) => letter.toUpperCase())}
                 </span>
-                <span className="font-medium text-white">{value.toLocaleString()}</span>
+                <span className="font-medium text-paper">{value.toLocaleString()}</span>
               </div>
             ))}
           </div>
@@ -313,7 +313,7 @@ export default function NewProjectPage() {
 
       <div className="mt-8 rounded-[28px] border border-white/10 bg-slate-950/70 p-6">
         <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-white">Editable rate overrides</h2>
+          <h2 className="text-xl font-semibold text-paper">Editable rate overrides</h2>
           <div className="text-xs uppercase tracking-[0.2em] text-slate-400">{modifiers.rateVolatility}</div>
         </div>
 
@@ -326,7 +326,7 @@ export default function NewProjectPage() {
                 min={0}
                 value={overrides[key] ?? materialDefaults[key] ?? 0}
                 onChange={(event) => setOverride(key, Number(event.target.value))}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-2.5 text-white outline-none transition focus:border-brass/60"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-2.5 text-paper outline-none transition focus:border-brass/60"
               />
             </label>
           ))}
@@ -339,7 +339,7 @@ export default function NewProjectPage() {
               type="number"
               value={modifiers.gstPercent}
               onChange={(event) => setModifier('gstPercent', Number(event.target.value))}
-              className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+              className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
             />
           </label>
           <label className="block text-sm text-slate-200">
@@ -348,7 +348,7 @@ export default function NewProjectPage() {
               type="number"
               value={modifiers.contractorProfitPercent}
               onChange={(event) => setModifier('contractorProfitPercent', Number(event.target.value))}
-              className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+              className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
             />
           </label>
           <label className="block text-sm text-slate-200">
@@ -357,7 +357,7 @@ export default function NewProjectPage() {
               type="number"
               value={modifiers.contingencyPercent}
               onChange={(event) => setModifier('contingencyPercent', Number(event.target.value))}
-              className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-white outline-none transition focus:border-brass/60"
+              className="mt-2 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-3 text-paper outline-none transition focus:border-brass/60"
             />
           </label>
         </div>
